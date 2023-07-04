@@ -4,11 +4,12 @@ class Node:
         self.left = None
         self.right = None
 
+
 class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def insert(self, data):
+    def insert(self, data) -> None:
         if not self.root:
             self.root = Node(data)
         else:
@@ -35,5 +36,3 @@ class BinaryTree:
     def display(self):
         self.inorder_traversal(self.root)
         print()
-
-

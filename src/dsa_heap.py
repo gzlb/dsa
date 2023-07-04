@@ -11,16 +11,16 @@ class Heap:
     def right_child(self, index):
         return (2 * index) + 2
 
-    def swap(self, i, j):
+    def swap(self, i, j) -> None:
         self.items[i], self.items[j] = self.items[j], self.items[i]
 
-    def heapify_up(self, index):
+    def heapify_up(self, index) -> None:
         parent_idx = self.parent(index)
         if index > 0 and self.items[index] < self.items[parent_idx]:
             self.swap(index, parent_idx)
             self.heapify_up(parent_idx)
 
-    def heapify_down(self, index):
+    def heapify_down(self, index) -> None:
         smallest = index
         left = self.left_child(index)
         right = self.right_child(index)
@@ -32,7 +32,7 @@ class Heap:
             self.swap(index, smallest)
             self.heapify_down(smallest)
 
-    def insert(self, data):
+    def insert(self, data) -> None:
         self.items.append(data)
         self.heapify_up(len(self.items) - 1)
 
@@ -52,4 +52,3 @@ class Heap:
 
     def size(self):
         return len(self.items)
-
